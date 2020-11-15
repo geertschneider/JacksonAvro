@@ -1,0 +1,35 @@
+plugins {
+    id 'groovy'
+    id 'application'
+}
+application {
+    mainClass = 'Application'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven{
+        url 'https://packages.confluent.io/maven/'
+    }
+
+}
+String jacksonVersion='2.11.3'
+String confluentVersion='6.0.0'
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:3.0.6'
+
+    // https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVersion
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: jacksonVersion
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: jacksonVersion
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-avro', version: jacksonVersion
+    compile group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: jacksonVersion
+
+    compile group: 'io.confluent', name:'kafka-avro-serializer',version: confluentVersion
+    compile group: 'org.apache.kafka', name: 'kafka_2.13', version: '2.6.0'
+
+
+}
