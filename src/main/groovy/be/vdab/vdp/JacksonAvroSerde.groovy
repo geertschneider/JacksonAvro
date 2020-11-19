@@ -1,4 +1,4 @@
-package be.vdab.vdp.util
+package be.vdab.vdp
 
 import com.fasterxml.jackson.dataformat.avro.AvroMapper
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
@@ -6,7 +6,6 @@ import groovy.transform.CompileStatic
 import io.confluent.kafka.schemaregistry.avro.AvroSchema
 import io.confluent.kafka.schemaregistry.client.rest.exceptions.RestClientException
 import io.confluent.kafka.serializers.*
-import org.apache.avro.Schema
 import org.apache.avro.io.DecoderFactory
 import org.apache.kafka.common.errors.SerializationException
 import org.apache.kafka.common.serialization.Deserializer

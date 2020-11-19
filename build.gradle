@@ -31,5 +31,14 @@ dependencies {
     compile group: 'io.confluent', name:'kafka-avro-serializer',version: confluentVersion
     compile group: 'org.apache.kafka', name: 'kafka_2.13', version: '2.6.0'
 
+    testImplementation "org.testcontainers:junit-jupiter:1.15.0"
+    testImplementation "org.testcontainers:kafka:1.15.0"
 
+
+
+    compile 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+
+}
+test {
+    useJUnitPlatform()
 }

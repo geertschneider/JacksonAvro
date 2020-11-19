@@ -1,15 +1,8 @@
-import be.vdab.vdp.util.JacksonAvroDeSerializer
-import be.vdab.vdp.util.JacksonAvroSerDe
-import be.vdab.vdp.util.JacksonAvroSerializer
-import com.fasterxml.jackson.databind.ObjectMapper
+import be.vdab.vdp.JacksonAvroSerDe
 import com.fasterxml.jackson.dataformat.avro.AvroMapper
-import com.fasterxml.jackson.dataformat.avro.AvroSchema
-import com.fasterxml.jackson.dataformat.avro.schema.AvroSchemaGenerator
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
 import groovy.transform.CompileStatic
-import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDe
 import io.confluent.kafka.serializers.AbstractKafkaSchemaSerDeConfig
-import io.confluent.kafka.serializers.KafkaAvroSerializerConfig
 import org.apache.kafka.clients.consumer.Consumer
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.ConsumerRecords
@@ -18,10 +11,8 @@ import org.apache.kafka.clients.producer.KafkaProducer
 import org.apache.kafka.clients.producer.Producer
 import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.clients.producer.ProducerRecord
-import org.apache.kafka.common.serialization.LongSerializer
 import org.apache.kafka.common.serialization.Serdes
 import org.apache.kafka.common.serialization.StringSerializer
-import scala.Int
 
 import java.time.Duration
 
@@ -77,7 +68,7 @@ Integer amountOfRecords=0
 
         AvroMapper mapper = new AvroMapper()
         mapper.registerModule(new JavaTimeModule())
-        JacksonAvroSerDe<User> jacksonSerDe= new JacksonAvroSerDe<User>(User.class, mapper)
+    JacksonAvroSerDe<User> jacksonSerDe= new JacksonAvroSerDe<User>(User.class, mapper)
 
         HashMap<String,String> config= new HashMap<String,String>()
         config.put(AbstractKafkaSchemaSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, 'http://localhost:8081')
