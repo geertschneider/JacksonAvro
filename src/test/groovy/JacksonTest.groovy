@@ -75,11 +75,11 @@ class JacksonTest {
     def runProducer(){
         println 'running producer'
         Producer<String, User> producer = createProducer()
-        (1..10).each({
+        (1..10).each{
             User usr = new User(id: it, naam: "Geert-${it}", vacatures: [new Vacature(id: it)])
             producer.send(new ProducerRecord<String, User>('testtopic', 'A', usr))
             println "produced event ${it}"
-        })
+        }
         producer.flush()
         producer.close()
     }
